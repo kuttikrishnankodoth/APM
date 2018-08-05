@@ -8,7 +8,7 @@ import { IProduct } from "./product";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  
+
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 2;
@@ -76,16 +76,19 @@ export class ProductListComponent {
       "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
   ];
-  constructor(){
-    this.filteredProducts=this.products;
-    this.listFilter='cart';
+  constructor() {
+    this.filteredProducts = this.products;
+    this.listFilter = 'cart';
   }
   toggleImage(): void {
     this.showImage = !this.showImage;
   }
   perFormFilter(filterBy: string): IProduct[] {
-    filterBy=filterBy.toLocaleLowerCase();
-    var filteredData= this.products.filter((product:IProduct)=>product.productName.toLocaleLowerCase().indexOf(filterBy)!=-1);
+    filterBy = filterBy.toLocaleLowerCase();
+    var filteredData = this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().indexOf(filterBy) != -1);
     return filteredData;
+  }
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List: ' + message;
   }
 }
