@@ -44,7 +44,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of filteredProducts'>
                         <td>
                             <img  *ngIf='showImage'
                             [src]='product.imageUrl'
@@ -55,7 +55,7 @@
                             {{product.productName}}
                         </td>
                         <td>
-                            {{product.productCode|lowercase}}
+                            {{product.productCode|lowercase|convertToSpaces: '-' }}
                         </td>
                         <td>
                             {{product.releaseDate}}
